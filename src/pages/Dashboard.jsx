@@ -143,12 +143,11 @@ function Dashboard() {
               </p>
             </div>
 
-            {/* STACK TRACE */}
 
             <div className="stacktrace-box">
               <h3>Stack Trace</h3>
 
-              {/* <pre>{selectedError.stackTrace}</pre> */}
+              <pre>{selectedError.stackTrace}</pre>
             </div>
           </div>
         </div>
