@@ -21,7 +21,7 @@ function Dashboard() {
 
   return (
     <div className="dashboard-container">
-      {/* HEADER */}
+
 
       <div className="top-section">
         <div>
