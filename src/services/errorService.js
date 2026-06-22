@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8081/api/errors";
+const API_URL = "https://roottrace-runtime-failure-monitoring.onrender.com/api/errors";
 
 export const getAllErrors = async () => {
     const response = await axios.get(API_URL);
