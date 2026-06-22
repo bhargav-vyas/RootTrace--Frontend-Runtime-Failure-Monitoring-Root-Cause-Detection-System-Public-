@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAllErrors } from "../services/errorService";
+import { getAllErrors, generateTestError } from "../services/errorService";
 import "./Dashboard.css";
 
 function Dashboard() {
@@ -19,17 +19,39 @@ function Dashboard() {
     }
   };
 
+  const handleGenerateError = async () => {
+    try {
+      await generateTestError();
+
+      setTimeout(() => {
+        fetchErrors();
+      }, 2000);
+    } catch (error) {
+      console.error("Failed to generate test error", error);
+    }
+  };
+
   return (
     <div className="dashboard-container">
-
-
       <div className="top-section">
         <div>
           <h1 className="main-title">RootTrace</h1>
           <p className="subtitle">AI Runtime Monitoring Platform</p>
         </div>
 
-        <div className="live-badge">● LIVE</div>
+        <div
+          style={{
+            display: "flex",
+            gap: "10px",
+            alignItems: "center",
+          }}
+        >
+          <button className="generate-btn" onClick={handleGenerateError}>
+            Generate Error
+          </button>
+
+          <div className="live-badge">● LIVE</div>
+        </div>
       </div>
 
       {/* STATS */}
@@ -142,7 +164,6 @@ function Dashboard() {
                 fixes.
               </p>
             </div>
-
 
             <div className="stacktrace-box">
               <h3>Stack Trace</h3>
