@@ -109,7 +109,7 @@ body{
 table{
     width:100%;
     border-collapse:collapse;
-    min-width:900px;
+    table-layout:fixed;
 }
 
 th{
@@ -124,6 +124,8 @@ td{
     padding:18px;
     border-bottom:1px solid rgba(255,255,255,0.05);
     font-size:14px;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 
 tr:hover{
@@ -137,6 +139,10 @@ tr:hover{
     border-radius:50px;
     font-size:12px;
     display:inline-block;
+    max-width:180px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
 }
 
 .status-pill{
@@ -149,9 +155,11 @@ tr:hover{
 }
 
 .message-cell{
-    max-width:320px;
+    max-width:250px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
     color:#cbd5e1;
-    line-height:1.5;
 }
 
 /* TABLET */
@@ -309,12 +317,17 @@ tr:hover{
     margin-bottom:12px;
     color:#60a5fa;
 }
-
-.stacktrace-box{
-    background:black;
-    padding:20px;
-    border-radius:16px;
-    overflow:auto;
+.stacktrace-box pre {
+  color: #00ff66;
+  font-size: 13px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.modal-content {
+  width: 95%;
+  height: 90vh;
+  overflow-y: auto;
 }
 
 .stacktrace-box h3{
@@ -326,4 +339,43 @@ tr:hover{
     font-size:13px;
     line-height:1.5;
     white-space:pre-wrap;
+}
+.severity-badge {
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.severity-badge.low {
+  background: green;
+}
+
+.severity-badge.medium {
+  background: orange;
+}
+
+.severity-badge.high {
+  background: red;
+}
+
+.severity-badge.critical {
+  background: darkred;
+}
+.filters-container {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.search-input {
+  padding: 10px;
+  width: 300px;
+  border-radius: 8px;
+  border: none;
+}
+
+.filters-container select {
+  padding: 10px;
+  border-radius: 8px;
 }
